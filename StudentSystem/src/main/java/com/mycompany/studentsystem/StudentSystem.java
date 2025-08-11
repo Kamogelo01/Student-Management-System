@@ -1,6 +1,7 @@
 package com.mycompany.studentsystem;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class StudentSystem {
 
@@ -9,7 +10,10 @@ public class StudentSystem {
         System.out.println("Welcome to the Library System!");
         Classroom cr = new Classroom();
         Scanner input = new Scanner(System.in);
+        
+         try{
         while (true) {
+           
             
             System.out.println("1. Add student");
             System.out.println("2. Remove student");
@@ -44,7 +48,12 @@ public class StudentSystem {
                     
                 default:
                     System.out.println("Invalid option. Try again.");
-            }
+            } 
         }
+    }  catch(InputMismatchException e) {
+        System.out.println("Enter a number from 1 - 6");
+        input.nextLine();
+        
+    }
     }
 }

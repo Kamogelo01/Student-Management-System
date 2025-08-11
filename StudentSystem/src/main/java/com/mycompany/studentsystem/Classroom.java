@@ -1,7 +1,9 @@
 package com.mycompany.studentsystem;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Classroom {
     
@@ -16,19 +18,19 @@ public class Classroom {
         try{
            
         System.out.println("Enter the Student ID");
-        String studentID = input.next();
+        String studentID = input.nextLine();
         System.out.println("Enter the Student name");
-        String studentName = input.next();
+        String studentName = input.nextLine();
         System.out.println("Enter the Student age");
         int studentAge = input.nextInt();
         System.out.println("Enter the Student grade");
-        int studentGrade = input.nextInt();
+        Double studentGrade = input.nextDouble();
         students.add(new Student(studentID,studentName,studentAge,studentGrade));
         System.out.println("Student :" + students.get(students.size()-1).getID() + " added"); 
         }catch(NullPointerException e){// Handle null inputs by prompting again
             System.out.println("Error: Null input");
             addStudent();
-        }catch(IllegalArgumentException e){// Handle invalid input formats by prompting again
+        }catch(InputMismatchException e){// Handle invalid input formats by prompting again
             System.out.println("Error: Invalid input");
             addStudent();
         }
